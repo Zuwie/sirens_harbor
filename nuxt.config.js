@@ -37,7 +37,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/components'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -57,6 +57,13 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: 'mNdD4LVMf6YeIVLXcY4H4gtt',
+        cacheProvider: 'memory',
+      },
+    ],
   ],
   /*
    ** Axios module configuration

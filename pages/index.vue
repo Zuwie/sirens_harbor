@@ -1,27 +1,59 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <v-card>
-        <v-card-title class="headline"> Sirens Harbor </v-card-title>
-        <v-card-text>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-            aspernatur consequuntur dignissimos enim molestiae molestias odit
-            sapiente? Error et eum expedita maiores mollitia nam perferendis,
-            repellat velit voluptates? Molestias, numquam!
-          </p>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <section class="util__container">
+    <component
+      :is="story.content.component"
+      v-if="story.content.component"
+      :key="story.content._uid"
+      :blok="story.content"
+    ></component>
+  </section>
 </template>
 
 <script>
 export default {
-  components: {},
+  asyncData(context) {
+    // Load the JSON from the API
+    return context.app.$storyapi
+      .get('cdn/stories/home', {
+        version: 'draft',
+      })
+      .then((res) => {
+        return res.data
+      })
+      .catch((res) => {
+        if (!res.response) {
+          context.error({
+            statusCode: 404,
+            message: 'Failed to receive content form api',
+          })
+        } else {
+          context.error({
+            statusCode: res.response.status,
+            message: res.response.data,
+          })
+        }
+      })
+  },
+  data() {
+    return {
+      story: { content: {} },
+    }
+  },
+  mounted() {
+    // use the bridge to listen to events
+    this.$storybridge.on(['input', 'published', 'change'], (event) => {
+      if (event.action === 'input') {
+        if (event.story.id === this.story.id) {
+          this.story.content = event.story.content
+        }
+      } else {
+        // window.location.reload()
+        this.$nuxt.$router.go({
+          path: this.$nuxt.$router.currentRoute,
+          force: true,
+        })
+      }
+    })
+  },
 }
 </script>
