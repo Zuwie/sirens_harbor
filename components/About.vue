@@ -3,7 +3,7 @@
     <v-container fill-height>
       <v-row>
         <v-col>
-          <h2>{{ blok.headline }}</h2>
+          <h2 class="text-h3 mb-8">{{ blok.headline }}</h2>
           <p>{{ blok.body }}</p>
         </v-col>
         <v-col>

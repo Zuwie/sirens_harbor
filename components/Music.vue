@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-center text-h2">{{ blok.headline }}</h2>
+    <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
   </div>
 </template>
 

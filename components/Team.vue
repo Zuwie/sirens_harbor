@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container dark>
-      <h2 class="text-center text-h2">{{ blok.headline }}</h2>
+      <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
       <v-row>
         <member
           v-for="member in blok.band"
