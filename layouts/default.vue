@@ -36,8 +36,20 @@
       <nuxt />
     </v-main>
 
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer padless="false" app :absolute="!fixed">
+      <v-card flat tile dark width="100%" class="lighten-1 text-center">
+        <v-card-text>
+          <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
+            <v-icon size="24px">{{ icon }}</v-icon>
+          </v-btn>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          &copy; {{ new Date().getFullYear() }} — <strong>Sirens Harbor</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -64,6 +76,7 @@ export default {
       miniVariant: false,
       right: true,
       title: 'Sirens Harbor',
+      icons: ['mdi-home', 'mdi-email', 'mdi-calendar', 'mdi-delete'],
     }
   },
 }
