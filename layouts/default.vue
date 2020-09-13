@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app :dark="darkTheme">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -29,6 +29,11 @@
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-switch
+        v-model="darkTheme"
+        label="Dark Mode"
+        @change="switchTheme"
+      ></v-switch>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
 
@@ -36,7 +41,7 @@
       <nuxt />
     </v-main>
 
-    <v-footer padless="false" app :absolute="!fixed">
+    <v-footer padless app :absolute="!fixed">
       <v-card flat tile dark width="100%" class="lighten-1 text-center">
         <v-card-text>
           <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
@@ -58,6 +63,7 @@
 export default {
   data() {
     return {
+      darkTheme: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -78,6 +84,16 @@ export default {
       title: 'Sirens Harbor',
       icons: ['mdi-home', 'mdi-email', 'mdi-calendar', 'mdi-delete'],
     }
+  },
+  mounted() {
+    this.darkTheme = localStorage.getItem('darkTheme') === 'true'
+    this.switchTheme()
+  },
+  methods: {
+    switchTheme() {
+      this.$vuetify.theme.dark = this.darkTheme
+      localStorage.setItem('darkTheme', this.darkTheme)
+    },
   },
 }
 </script>
