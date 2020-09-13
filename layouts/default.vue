@@ -6,6 +6,7 @@
       :clipped="clipped"
       fixed
       app
+      right
     >
       <v-list>
         <v-list-item
@@ -26,9 +27,9 @@
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
 
     <v-main>
@@ -62,7 +63,6 @@ export default {
       ],
       miniVariant: false,
       right: true,
-      rightDrawer: false,
       title: 'Sirens Harbor',
     }
   },
