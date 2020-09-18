@@ -1,7 +1,7 @@
 <template>
   <div v-editable="blok" class="col-sm-6">
     <v-card height="100%">
-      <v-img :src="blok.filename" :height="300"></v-img>
+      <v-img :src="blok.cover.filename" :height="300"></v-img>
       <v-card-text>
         <v-card-title>{{ blok.title }}</v-card-title>
         <v-card-subtitle>{{ blok.releaseDate }}</v-card-subtitle>
