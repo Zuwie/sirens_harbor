@@ -24,17 +24,19 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-list-item>
+          <v-switch
+            v-model="darkTheme"
+            label="Dark Mode"
+            @change="switchTheme"
+          ></v-switch>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app dark>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-switch
-        v-model="darkTheme"
-        label="Dark Mode"
-        @change="switchTheme"
-      ></v-switch>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
 
