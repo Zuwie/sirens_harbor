@@ -11,6 +11,7 @@
     </v-card>
   </v-col>
 </template>
+
 <script>
 export default {
   name: 'Member',

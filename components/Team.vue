@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container dark>
+    <v-container>
       <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
       <v-row>
         <member
