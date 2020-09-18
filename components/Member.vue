@@ -8,10 +8,7 @@
       >
         <v-card-title>{{ blok.name }}</v-card-title>
       </v-img>
-
-      <v-card-text class="text--primary">
-        <div>{{ blok.body }}</div>
-      </v-card-text>
+      <v-card-text>{{ blok.body }}</v-card-text>
     </v-card>
   </v-col>
 </template>
