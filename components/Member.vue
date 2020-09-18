@@ -1,16 +1,12 @@
 <template>
-  <v-col v-editable="blok">
-    <v-card class="mx-auto" max-width="400" height="100%">
-      <v-img
-        class="white--text align-end"
-        height="200px"
-        :src="blok.image.filename"
-      >
+  <div v-editable="blok" class="col-sm-6">
+    <v-card height="100%">
+      <v-img class="white--text align-end" :src="blok.image.filename">
         <v-card-title>{{ blok.name }}</v-card-title>
       </v-img>
       <v-card-text>{{ blok.body }}</v-card-text>
     </v-card>
-  </v-col>
+  </div>
 </template>
 
 <script>
