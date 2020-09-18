@@ -6,7 +6,7 @@
         height="200px"
         :src="blok.image.filename"
       >
-        <v-card-title>{{ blok.headline }}</v-card-title>
+        <v-card-title>{{ blok.name }}</v-card-title>
       </v-img>
 
       <v-card-text class="text--primary">
