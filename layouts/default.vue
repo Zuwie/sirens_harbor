@@ -2,8 +2,9 @@
   <v-app :dark="darkTheme">
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
+      :drawer="false"
       :clipped="clipped"
+      temporary
       fixed
       app
       right
@@ -79,7 +80,6 @@ export default {
           to: '/inspire',
         },
       ],
-      miniVariant: false,
       right: true,
       title: 'Sirens Harbor',
       icons: ['mdi-home', 'mdi-email', 'mdi-calendar', 'mdi-delete'],
