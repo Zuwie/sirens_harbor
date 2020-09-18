@@ -1,12 +1,16 @@
 <template>
-  <v-col>
+  <v-col v-editable="blok">
     <v-card class="mx-auto" max-width="400" height="100%">
-      <v-img class="white--text align-end" height="200px" :src="image.filename">
-        <v-card-title>{{ headline }}</v-card-title>
+      <v-img
+        class="white--text align-end"
+        height="200px"
+        :src="blok.image.filename"
+      >
+        <v-card-title>{{ blok.headline }}</v-card-title>
       </v-img>
 
       <v-card-text class="text--primary">
-        <div>{{ body }}</div>
+        <div>{{ blok.body }}</div>
       </v-card-text>
     </v-card>
   </v-col>
@@ -15,23 +19,6 @@
 <script>
 export default {
   name: 'Member',
-  props: {
-    headline: {
-      type: String,
-      default: 'Headline missing',
-    },
-    body: {
-      type: String,
-      default: 'Body missing',
-    },
-    image: {
-      type: Object,
-      default: () => {
-        return {
-          filename: '',
-        }
-      },
-    },
-  },
+  props: ['blok'],
 }
 </script>

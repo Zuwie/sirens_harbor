@@ -1,14 +1,12 @@
 <template>
-  <div>
+  <div v-editable="blok">
     <v-container>
       <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
       <v-row>
         <member
-          v-for="member in blok.band"
-          :key="member._uid"
-          :headline="member.name"
-          :body="member.body"
-          :image="member.image"
+          v-for="blok in blok.band"
+          :key="blok._uid"
+          :blok="blok"
         ></member>
       </v-row>
     </v-container>

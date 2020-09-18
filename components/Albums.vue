@@ -1,15 +1,12 @@
 <template>
-  <div>
+  <div v-editable="blok">
     <v-container>
       <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
       <v-row>
         <album
-          v-for="album in blok.albums"
-          :key="album._uid"
-          :cover="album.cover"
-          :title="album.title"
-          :description="album.description"
-          :release-date="album.release_date"
+          v-for="blok in blok.albums"
+          :key="blok._uid"
+          :blok="blok"
         ></album>
       </v-row>
     </v-container>
