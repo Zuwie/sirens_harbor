@@ -4,7 +4,7 @@
       <h2 class="text-center text-h2 mb-10">{{ blok.headline }}</h2>
       <v-row>
         <album
-          v-for="album in blok.band"
+          v-for="album in blok.albums"
           :key="album._uid"
           :headline="album.name"
           :body="album.body"
