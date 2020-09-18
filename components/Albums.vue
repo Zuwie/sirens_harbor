@@ -6,9 +6,10 @@
         <album
           v-for="album in blok.albums"
           :key="album._uid"
-          :headline="album.name"
-          :body="album.body"
-          :image="album.image"
+          :cover="album.cover"
+          :title="album.title"
+          :description="album.description"
+          :release-date="album.release_date"
         ></album>
       </v-row>
     </v-container>
